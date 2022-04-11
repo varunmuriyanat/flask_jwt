@@ -91,6 +91,7 @@ def get_all_users():
 
 @app.route('/book', methods=['POST'])
 @token_required
+@validate_json(["name", "Author", "Publisher", "book_prize"])
 def create_book(current_user):
  
    data = request.get_json()
